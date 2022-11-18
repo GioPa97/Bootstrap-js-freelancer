@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="utf-8">
@@ -12,9 +12,6 @@
 </head>
 
 <body>
-
-
-
 
     <!--header start-->
     <header class="sticky-top  bg-dark align-items-center text-center">
@@ -30,11 +27,6 @@
         </div>
     </header>
     <!--header end-->
-
-
-
-
-
 
     <main>
         <div class="container-fluid p-4 bg-info align-items-center text-center flex-column d-flex">
@@ -155,91 +147,68 @@
 
     </main>
 
-
-
-
-
-
-
-
-
     <!--form start-->
     <div class="container-fluid bg-info mt-5 p-1">
         <div class="row justify-content-center g-0">
             <div class="col-lg-10">
                 <p class="fs-2 text-uppercase fw-semibold text-center mt-3">Want an offer?</p>
 
-                <form class="row text-start gy-3">
+                <form class="row text-start gy-3" onsubmit="submitForm(event)">
 
                     <div class="col-md-6">
                         <label for="firstname" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="firstname" placeholder="Bob">
+                        <input type="text" class="form-control" id="firstname" placeholder="Barack">
                     </div>
 
                     <div class="col-md-6">
                         <label for="lastname" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="lastname" placeholder="Ross">
+                        <input type="text" class="form-control" id="lastname" placeholder="Obama">
                     </div>
 
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="email@host">
+                        <input type="email" class="form-control" id="email" placeholder="Barackobama33@gmail.com">
                     </div>
 
-                    <!--Da qui prendo l'informazione da salvare nella variabile "ore"-->
+                    <!--Da qui prendo il monte ore-->
 
                     <div class="col-md-6">
                         <label for="hoursrequired" class="form-label">Hours Required</label>
                         <input type="number" class="form-control" id="hoursrequired">
                     </div>
 
-                    <!--Qui devo dire alle tre value a chi corrispondono nell'array"servizioOfferto""-->   
+                    <!--Qui devo dire alle tre value a che prezzo corrispondono-->
 
                     <div class="col-md-6">
                         <label for="worktype" class="form-label">Type of work</label>
-                        <select name="worktype" id="worktype" class="form-select">
-                            <option value="" selected="selected">-- Please select an option --</option>
-                            <option value="frontend">Front-end Developer</option>
-                            <option value="backend">Back-end Developer</option>
-                            <option value="fullstack">Full-stack Developer</option>
+                        <select class="form-select" id="worktype">
+                            <option value="backend">Backend Development</option>
+                            <option value="frontend">Frontend Development</option>
+                            <option value="projectAnalisys">Project Analisys</option>
                         </select>
                     </div>
 
-                    <!--Da qui devo prendere l'informazione sconto,vedere se coincide con uno dei miei oggetti contenuti in"ArrayCodiciPromozionali" o meno-->
+                    <!--Da qui devo prendere il codice sconto-->
 
                     <div class="col-md-6">
                         <label for="discountcode" class="form-label">Discount Code</label>
-                        <input type="text" class="form-control text-uppercase" id="discountcode" placeholder="YHDNU32">
+                        <input type="text" class="form-control text-uppercase" id="discountcode" placeholder="DCODE97">
                     </div>
 
                     <div class="col-12">
                         <label for="message" class="form-label">Message</label>
                         <textarea name="message" id="message" class="form-control" rows="5"></textarea>
                     </div>
-                </form>
-                <div class="row mt-4">
-                    <div class="col d-flex justify-content-center">
-                        <button class="btn btn-warning">Send</button>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-warning">Send</button>
                     </div>
-                </div>
-                <div class="row">
-                    <p class="fs-4 fw-semibold">Il prezzo finale è di: €153.75</p>
-                </div>
+                    <div class="col-12">
+                        <p id="prestazione" class="fs-3 mb-5"></p>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    </main>
-
-
-
-
-
-
-
-
-
-
-
 
 
     <footer class="container-fluid bg-dark align-items-center text-center m-0">
@@ -253,23 +222,6 @@
             </div>
         </div>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

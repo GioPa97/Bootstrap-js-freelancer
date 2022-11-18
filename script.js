@@ -17,7 +17,7 @@ Buon lavoro!
 Super Bonus: Creare una struttura dati adeguata per contenere tutte le informazioni relative ai progetti presenti nella sezione “Portfolio”. Rimuovere quindi le card dal markup nel file html e stamparle in pagina dinamicamente tramite l’utilizzo di JavaScript.*/
 
 
-//Scrivo un Array di oggetti; gli oggetti sono i servizi proposti con il prezzo indicato; (X);
+/*Scrivo un Array di oggetti; gli oggetti sono i servizi proposti con il prezzo indicato; 
 let servizioOfferto = [
     {
         prezzo: 20.50,
@@ -29,14 +29,10 @@ let servizioOfferto = [
         prezzo: 33.60,
     },
 
-];
-
-//Scrivo una variabile dove salvare le ore indicate dall'utente; (Y);
-/*let ore = prompt("inserisci le ore"); */
+]
 
 
-
-//Scrivo un Array di oggetti; gli oggetti sono i codici promozionali con valore sconto del 25%; (Z);
+//Scrivo un Array di oggetti; gli oggetti sono i codici promozionali con valore sconto del 25%; 
 const arrayCodiciPromozionali = [
     {
         codice: `YHDNU32`,
@@ -60,6 +56,28 @@ const arrayCodiciPromozionali = [
     },
 
 ];
+*/
+
+let tariffaBackend = 20.5;
+let tariddaFrontend = 15.3;
+let tariffaAnalisi = 33.6;
+let codiciScontoValidi = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"]
+let sconto = 0.75;
+let codiceSconto;
+
+
+
+
+function submitForm(event) {
+    event.preventDefault();
+    let ore = document.getElementById("hoursrequired").value;
+    let servizioOfferto = document.getElementById("worktype").value;
+    codiceSconto = document.getElementById("discountcode").value;
+    let controlloSconto = applicaSconto(codiceSconto);
+    let commissione = tariffaServizio(servizioOfferto);
+    let prezzofinale = calcoloPrezzo(ore, commissione, controlloSconto).toFixed(2);
+    document.getElementById("prestazione").innerHTML = "Il prezzo finale è di: " + prezzofinale + "&euro;";
+}
 
 
 
@@ -67,17 +85,50 @@ const arrayCodiciPromozionali = [
 
 
 
+//funzioni dichiarate==============================================================================================================================================
+
+//funzione con switch per le tariffe dei servizi;
+function tariffaServizio(tipoDiLavoro) {
+    let tariffaServizio = 20.5;
+    switch (tipoDiLavoro) {
+        case "frontend":
+            tariffaServizio = 15.3;
+            break;
+        case "projectAnalisys":
+            tariffaServizio = 33.6;
+            break;
+    }
+    return (tariffaServizio);
+}
+
+//funzione per calcolare lo sconto se vi è il codice corretto;
+function applicaSconto(codice) {
+    let controlloSconto = false
+    for (i = 0; i < codiciScontoValidi.length; i++) {
+        if (codice == codiciScontoValidi[i]) {
+            controlloSconto = true;
+            codiciScontoValidi.splice(i, 1);
+            break
+        }
+    }
+    return (controlloSconto);
+}
 
 
+//funzione per calcolare il prezzo;
+function calcoloPrezzo(ore, tipoDiLavoro, codiceApplicato) {
+    let prezzoPrestazione = ore * tipoDiLavoro;
+    if (codiceSconto != "") {
+        if (codiceApplicato) {
+            prezzoPrestazione = prezzoPrestazione * sconto;
+            document.getElementById("discountcode");
+            alert("È stato applicato un codice sconto del 25%. Il codice sconto applicato è: " + codiceSconto)
+        } else {
+            alert("Il codice inserito non è valido o è già stato usato.")
+            document.getElementById("discountCode").style.color = "red";
 
-//Funzioni Dichiarate===========================================================
-//Dichiaro una funzione calcolo base: x sarà il servizio, y le ore, z lo sconto
-function calcolaPrezzo(x, y, z) {
-    let prezzoDaArrotondare = x * y 
-    let prezzoArrotondato = prezzoDaArrotondare.toFixed(2);
-    let prezzoFinale = prezzoArrotondato - (prezzoArrotondato * z);
-    return prezzoFinale;
-};
-
-
-//===============================================================================
+        }
+    }
+    return (prezzoPrestazione)
+}
+//=================================================================================================================================================================
