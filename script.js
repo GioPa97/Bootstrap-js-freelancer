@@ -77,23 +77,21 @@ function submitForm(event) {
     let commissione = tariffaServizio(servizioOfferto);
     let prezzofinale = calcoloPrezzo(ore, commissione, controlloSconto).toFixed(2);
     document.getElementById("prestazione").innerHTML = "Il prezzo finale è di: " + prezzofinale + "&euro;";
-    
+
     console.log(
         `
-    INFO===========================================================================
-    "Il monte ore selezionato è di:                      " ${ore}          "ore"
-    "La tariffa oraria per la commissione selezionata è: " ${commissione}  "€"
-    "Il prezzo finale è di:                              " ${prezzofinale} "€"
-    ===============================================================================
+    INFO PRESTAZIONE===================================================================
+    Il monte ore selezionato è di:                       ${ore} ore
+    La tariffa oraria per la commissione selezionata è:  ${commissione} €
+    Il codice sconto è:                                   ${codiceSconto}
+    Il prezzo finale è di:                               ${prezzofinale} €
+    ===================================================================================
     `
     );
 
-   
+
 
 }
-
-
-
 
 
 
@@ -112,7 +110,7 @@ function tariffaServizio(tipoDiLavoro) {
             break;
     }
     return (tariffaServizio);
-    
+
 }
 
 //funzione per calcolare lo sconto se vi è il codice corretto;
