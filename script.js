@@ -30,6 +30,13 @@ let servizioOfferto = [
 
 ];
 
+//Scrivo un Array di codici promozionali;
+const arrayCodiciPromozionali = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24",];
+
+
+
+
+
 
 //Funzioni Dichiarate===========================================================
 //Dichiaro una funzione calcolo base: x sarà il servizio, y le ore, z lo sconto
