@@ -32,7 +32,7 @@ let servizioOfferto = [
 ];
 
 //Scrivo una variabile dove salvare le ore indicate dall'utente; (Y);
-let ore = prompt("inserisci le ore");
+/*let ore = prompt("inserisci le ore"); */
 
 
 
