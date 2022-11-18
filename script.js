@@ -16,7 +16,8 @@ Avete tutta la giornata a disposizione, fino alle 18: quello che viene committat
 Buon lavoro!
 Super Bonus: Creare una struttura dati adeguata per contenere tutte le informazioni relative ai progetti presenti nella sezione “Portfolio”. Rimuovere quindi le card dal markup nel file html e stamparle in pagina dinamicamente tramite l’utilizzo di JavaScript.*/
 
-//Scrivo un Array di oggetti; gli oggetti sono i servizi proposti con il prezzo indicato;
+
+//Scrivo un Array di oggetti; gli oggetti sono i servizi proposti con il prezzo indicato; (X);
 let servizioOfferto = [
     {
         prezzo: 20.50,
@@ -30,8 +31,39 @@ let servizioOfferto = [
 
 ];
 
-//Scrivo un Array di codici promozionali;
-const arrayCodiciPromozionali = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24",];
+//Scrivo una variabile dove salvare le ore indicate dall'utente; (Y);
+let ore = prompt("inserisci le ore");
+
+
+
+//Scrivo un Array di oggetti; gli oggetti sono i codici promozionali con valore sconto del 25%; (Z);
+const arrayCodiciPromozionali = [
+    {
+        codice: `YHDNU32`,
+        sconto: 0.75
+    },
+    {
+        codice: `JANJC63`,
+        sconto: 0.75
+    },
+    {
+        codice: `PWKCN25`,
+        sconto: 0.75
+    },
+    {
+        codice: `SJDPO96`,
+        sconto: 0.75
+    },
+    {
+        codice: `POCIE24`,
+        sconto: 0.75
+    },
+
+];
+
+
+
+
 
 
 
@@ -41,9 +73,10 @@ const arrayCodiciPromozionali = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "PO
 //Funzioni Dichiarate===========================================================
 //Dichiaro una funzione calcolo base: x sarà il servizio, y le ore, z lo sconto
 function calcolaPrezzo(x, y, z) {
-    let prezzoDaArrotondare = x * y - z
-    let prezzo = prezzoDaArrotondare.toFixed(2);
-    return prezzo;
+    let prezzoDaArrotondare = x * y 
+    let prezzoArrotondato = prezzoDaArrotondare.toFixed(2);
+    let prezzoFinale = prezzoArrotondato - (prezzoArrotondato * z);
+    return prezzoFinale;
 };
 
 
