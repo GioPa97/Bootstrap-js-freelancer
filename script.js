@@ -16,10 +16,19 @@ Avete tutta la giornata a disposizione, fino alle 18: quello che viene committat
 Buon lavoro!
 Super Bonus: Creare una struttura dati adeguata per contenere tutte le informazioni relative ai progetti presenti nella sezione “Portfolio”. Rimuovere quindi le card dal markup nel file html e stamparle in pagina dinamicamente tramite l’utilizzo di JavaScript.*/
 
+//Scrivo un Array di oggetti; gli oggetti sono i servizi proposti con il prezzo indicato;
+let servizioOfferto = [
+    {
+        prezzo: 20.50,
+    },
+    {
+        prezzo: 15.30,
+    },
+    {
+        prezzo: 33.60,
+    },
 
-
-
-
+];
 
 
 //Funzioni Dichiarate===========================================================
